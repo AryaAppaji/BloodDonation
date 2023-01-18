@@ -1,0 +1,47 @@
+
+body h1{
+    text-align: center;
+    color: #850000;
+    text-decoration: underline;
+}
+
+body form input{
+    width: 300px;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+
+body form input::placeholder{
+    padding-left: 10px;
+}
+body form select{
+    border-radius: 15px;
+    margin-left: 10px;
+}
+body form textarea::placeholder{
+    padding-left: 10px;
+}
+
+body form textarea{
+    border-radius: 15px;
+    border-top: solid black 2px;
+    border-left: solid black 2px;
+    border-bottom: solid darkgray 2px;
+    border-right: solid darkgray 2px;
+    margin-left: 10px;
+}
+
+body form button{
+    width: 300px;
+    border-radius: 15px;
+    background-color: #850000;
+}
+
+body form button{
+    color: white;
+}
+
+body form button:hover{
+    color: gold;
+}
+

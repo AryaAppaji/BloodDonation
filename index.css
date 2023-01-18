@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.content{
+    width: 90%;
+    margin: auto;
+}
+
+.sub2{
+    height: 100%;
+    width: 100%;
+}
+
+table td{
+    text-align: center;
+    border-radius: 15px;
+    background-color: #850000;
+    padding: 10px;
+    color: white;
+}

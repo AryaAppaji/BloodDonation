@@ -1,0 +1,27 @@
+body h1{
+    text-align: center;
+    color: #850000;
+    text-decoration: underline;
+}
+
+body form input{
+    width: 300px;
+    border-radius: 15px;
+}
+
+body form input::placeholder{
+    padding-left: 10px;
+}
+body form button{
+    width: 300px;
+    border-radius: 15px;
+    background-color: #850000;
+}
+
+body form button{
+    color: white;
+}
+
+body form button :hover{
+    color: gold;
+}
