@@ -41,7 +41,7 @@
         $mail=$_POST["mail"];
     }
     $conn = mysqli_connect("localhost","root","","blooddonation");
-    mysqli_query($conn,"INSERT INTO `donars`(`Name`, `B-GRP`, `Address`, `Mobile`, `E-Mail`) VALUES ('$name','$bgrp','$addr','$num','$mail')");
+    mysqli_query($conn,"INSERT INTO `donars`(`Name`, `BGRP`, `Address`, `Mobile`, `EMail`) VALUES ('$name','$bgrp','$addr','$num','$mail')");
     ?>
 </body>
 </html>
