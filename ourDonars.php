@@ -11,7 +11,7 @@
 <?php
     include_once "navbar.php";
     //Connecting to MySQL Database.
-    $conn = mysqli_connect("localhost","root","","blooddonation");
+    $conn = mysqli_connect($_ENV["DB_HOST"],$_ENV["DB_USER_NAME"],$_ENV["DB_PASSWORD"],$_ENV["DB_NAME"]);
 
     $fetch="SELECT `Name`, `BGRP`, `Address`, `Mobile`, `EMail` FROM `donars` ";
     $result = mysqli_query($conn,$fetch);

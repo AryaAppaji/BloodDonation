@@ -5,17 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanks For Registration</title>
-    <style>
-        body{
-            background-color: #850000;
-        }
-        h1{
-            color: white;
-            font-style: oblique;
-            font-size: 50px;
-            transform: translateY(250px);
-        }
-    </style>
+    <link rel="stylesheet" href="insert.css">
 </head>
 <body align="center">
     <h1>THANKS FOR REGISTRATION</h1>
@@ -40,7 +30,7 @@
     if(isset($_POST["mail"])){
         $mail=$_POST["mail"];
     }
-    $conn = mysqli_connect("localhost","root","","blooddonation");
+    $conn = mysqli_connect($_ENV["DB_HOST"],$_ENV["DB_USER_NAME"],$_ENV["DB_PASSWORD"],$_ENV["DB_NAME"]);
     mysqli_query($conn,"INSERT INTO `donars`(`Name`, `BGRP`, `Address`, `Mobile`, `EMail`) VALUES ('$name','$bgrp','$addr','$num','$mail')");
     ?>
 </body>
