@@ -11,47 +11,46 @@
     <?php include_once "navbar.php"?>
     <div class="content" align="center">
     <?php
-    $conn = mysqli_connect($_ENV["DB_HOST"],$_ENV["DB_USER_NAME"],$_ENV["DB_PASSWORD"],$_ENV["DB_NAME"]);
+        $conn = mysqli_connect("localhost","root","","blooddonation");
+        $fetch="SELECT `Name`, `BGRP`, `Address`, `Mobile`, `EMail` FROM `donars`";
+        $result = mysqli_query($conn,$fetch);
 
-    $fetch="SELECT `Name`, `BGRP`, `Address`, `Mobile`, `EMail` FROM `donars`";
-    $result = mysqli_query($conn,$fetch);
-
-    $Apos=0;
-    $Aneg=0;
-    $Bpos=0;
-    $Bneg=0;
-    $ABpos=0;
-    $ABneg=0;
-    $Opos=0;
-    $Oneg=0;
-    while($res=mysqli_fetch_assoc($result)){
-        if($res["BGRP"]=="A+"){
-            $Apos+=1;
+        $Apos=0;
+        $Aneg=0;
+        $Bpos=0;
+        $Bneg=0;
+        $ABpos=0;
+        $ABneg=0;
+        $Opos=0;
+        $Oneg=0;
+        while($res=mysqli_fetch_assoc($result)){
+            if($res["BGRP"]=="A+"){
+                $Apos+=1;
+            }
+            elseif($res["BGRP"]=="A-"){
+                $Aneg+=1;
+            }
+            elseif($res["BGRP"]=="B+"){
+                $Bpos+=1;
+            }
+            elseif($res["BGRP"]=="B-"){
+                $Bneg+=1;
+            }
+            elseif($res["BGRP"]=="AB+"){
+                $ABpos+=1;
+            }
+            elseif($res["BGRP"]=="AB-"){
+                $ABneg+=1;
+            }
+            elseif($res["BGRP"]=="O+"){
+                $Opos+=1;
+            }
+            elseif($res["BGRP"]=="O-"){
+                $Oneg+=1;
+            }
         }
-        elseif($res["BGRP"]=="A-"){
-            $Aneg+=1;
-        }
-        elseif($res["BGRP"]=="B+"){
-            $Bpos+=1;
-        }
-        elseif($res["BGRP"]=="B-"){
-            $Bneg+=1;
-        }
-        elseif($res["BGRP"]=="AB+"){
-            $ABpos+=1;
-        }
-        elseif($res["BGRP"]=="AB-"){
-            $ABneg+=1;
-        }
-        elseif($res["BGRP"]=="O+"){
-            $Opos+=1;
-        }
-        elseif($res["BGRP"]=="O-"){
-            $Oneg+=1;
-        }
-    }
-    $total=$Apos+$Aneg+$Bpos+$Bneg+$ABpos+$ABneg+$Opos+$Oneg;
-?>
+        $total=$Apos+$Aneg+$Bpos+$Bneg+$ABpos+$ABneg+$Opos+$Oneg;
+    ?>
 
         <div class="sub2"><img src="donation.png"></div>
         <br>
