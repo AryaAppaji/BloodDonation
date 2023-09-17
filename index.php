@@ -11,66 +11,46 @@
     <?php include_once "navbar.php"?>
     <div class="content" align="center">
     <?php
-    $conn = mysqli_connect($_ENV["DB_HOST"],$_ENV["DB_USER_NAME"],$_ENV["DB_PASSWORD"],$_ENV["DB_NAME"]);
+        $conn = mysqli_connect("localhost","root","","blooddonation");
+        $fetch="SELECT `Name`, `BGRP`, `Address`, `Mobile`, `EMail` FROM `donars`";
+        $result = mysqli_query($conn,$fetch);
 
-    $fetch="SELECT `Name`, `BGRP`, `Address`, `Mobile`, `EMail` FROM `donars`";
-    $result = mysqli_query($conn,$fetch);
-
-    $Apos=0;
-    $Aneg=0;
-    $Bpos=0;
-    $Bneg=0;
-    $ABpos=0;
-    $ABneg=0;
-    $Opos=0;
-    $Oneg=0;
-    while($res=mysqli_fetch_assoc($result)){
-        if($res["BGRP"]=="A+"){
-            $Apos+=1;
+        $Apos=0;
+        $Aneg=0;
+        $Bpos=0;
+        $Bneg=0;
+        $ABpos=0;
+        $ABneg=0;
+        $Opos=0;
+        $Oneg=0;
+        while($res=mysqli_fetch_assoc($result)){
+            if($res["BGRP"]=="A+"){
+                $Apos+=1;
+            }
+            elseif($res["BGRP"]=="A-"){
+                $Aneg+=1;
+            }
+            elseif($res["BGRP"]=="B+"){
+                $Bpos+=1;
+            }
+            elseif($res["BGRP"]=="B-"){
+                $Bneg+=1;
+            }
+            elseif($res["BGRP"]=="AB+"){
+                $ABpos+=1;
+            }
+            elseif($res["BGRP"]=="AB-"){
+                $ABneg+=1;
+            }
+            elseif($res["BGRP"]=="O+"){
+                $Opos+=1;
+            }
+            elseif($res["BGRP"]=="O-"){
+                $Oneg+=1;
+            }
         }
-        elseif($res["BGRP"]=="A-"){
-            $Aneg+=1;
-        }
-        elseif($res["BGRP"]=="B+"){
-            $Bpos+=1;
-        }
-        elseif($res["BGRP"]=="B-"){
-            $Bneg+=1;
-        }
-        elseif($res["BGRP"]=="AB+"){
-            $ABpos+=1;
-        }
-        elseif($res["BGRP"]=="AB-"){
-            $ABneg+=1;
-        }
-        elseif($res["BGRP"]=="O+"){
-            $Opos+=1;
-        }
-        elseif($res["BGRP"]=="O-"){
-            $Oneg+=1;
-        }
-    }
-    $total=$Apos+$Aneg+$Bpos+$Bneg+$ABpos+$ABneg+$Opos+$Oneg;
-    /*$Apos=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`A+`");
-    $Aneg=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`A-`");
-    $Bpos=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`B+`");
-    $Bneg=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`B-`");
-    $ABpos=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`AB+`");
-    $ABneg=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`AB-`");
-    $Opos=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`O+`");
-    $Oneg=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars` WHERE `BGRP`=`O-`");
-    $total=mysqli_query($conn,"SELECT COUNT(`BGRP`) FROM `donars`");
-
-    $q1=mysqli_fetch_assoc($q1);
-    $q2=mysqli_fetch_assoc($q2);
-    $q3=mysqli_fetch_assoc($q3);
-    $q4=mysqli_fetch_assoc($q4);
-    $q5=mysqli_fetch_assoc($q5);
-    $q6=mysqli_fetch_assoc($q6);
-    $q7=mysqli_fetch_assoc($q7);
-    $q8=mysqli_fetch_assoc($q8);
-    $q9=mysqli_fetch_assoc($q9);*/
-?>
+        $total=$Apos+$Aneg+$Bpos+$Bneg+$ABpos+$ABneg+$Opos+$Oneg;
+    ?>
 
         <div class="sub2"><img src="donation.png"></div>
         <br>
