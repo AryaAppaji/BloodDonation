@@ -30,7 +30,7 @@
     if(isset($_POST["mail"])){
         $mail=$_POST["mail"];
     }
-    $conn = mysqli_connect($_ENV["DB_HOST"],$_ENV["DB_USER_NAME"],$_ENV["DB_PASSWORD"],$_ENV["DB_NAME"]);
+    $conn = mysqli_connect("localhost","root","","blooddonation");
     mysqli_query($conn,"INSERT INTO `donars`(`Name`, `BGRP`, `Address`, `Mobile`, `EMail`) VALUES ('$name','$bgrp','$addr','$num','$mail')");
     ?>
 </body>
